@@ -9,8 +9,13 @@ class HomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
+        shape: const CircleBorder(
+          eccentricity: 1,
+        ),
         onPressed: () {
           showModalBottomSheet(
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
             context: context,
             builder: (context) {
               return const AddNoteButtomSheet();
