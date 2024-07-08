@@ -19,7 +19,7 @@ class HomeView extends StatelessWidget {
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
             context: context,
             builder: (context) {
-              return const AddNoteButtomSheet();
+              return const AddNoteBottomSheet();
             },
           );
         },
