@@ -3,8 +3,8 @@ import 'package:notes_app/models/note_model.dart';
 import 'package:notes_app/views/edit_note_view.dart';
 
 class NotesItem extends StatelessWidget {
-  const NotesItem({super.key, required this.notes});
-  final NoteModel notes;
+  const NotesItem({super.key, required this.note});
+  final NoteModel note;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -18,7 +18,7 @@ class NotesItem extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.only(top: 24, bottom: 24, left: 16),
         decoration: BoxDecoration(
-          color: Color(notes.color),
+          color: Color(note.color),
           borderRadius: BorderRadius.circular(16),
         ),
         child: Column(
@@ -26,7 +26,7 @@ class NotesItem extends StatelessWidget {
           children: [
             ListTile(
               title: Text(
-                notes.title,
+                note.title,
                 style: const TextStyle(
                   color: Colors.black,
                   fontSize: 26,
@@ -35,7 +35,7 @@ class NotesItem extends StatelessWidget {
               subtitle: Padding(
                 padding: const EdgeInsets.only(top: 16, bottom: 16),
                 child: Text(
-                  notes.subTitle,
+                  note.subTitle,
                   style: TextStyle(
                     color: Colors.black.withOpacity(.6),
                     fontSize: 18,
@@ -43,7 +43,9 @@ class NotesItem extends StatelessWidget {
                 ),
               ),
               trailing: IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  note.delete();
+                },
                 icon: const Icon(
                   Icons.delete,
                   color: Colors.black,
@@ -54,7 +56,7 @@ class NotesItem extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(right: 24),
               child: Text(
-                notes.date,
+                note.date,
                 style: TextStyle(
                   color: Colors.black.withOpacity(.6),
                   fontSize: 16,
